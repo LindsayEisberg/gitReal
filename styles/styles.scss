@@ -1,3 +1,5 @@
+@import '../bourbon/bourbon';
+@import 'variables';
 
 body, h1, h2, h3, h4, h5, p, a {
   margin: 0;
@@ -87,23 +89,22 @@ p {
   padding-top: 10px;
 
 }
-
-
 //BACKGROUND
 video.bgvid {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    opacity: 0.8;
-    @include sepia(sepia(0.8));
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  opacity: 0.8;
+  background-color: #fffff4;
+  @include sepia(sepia(0.8));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 //SECTIONS
 section {
@@ -112,23 +113,23 @@ section {
   .mood {
     display: block;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 15%;
   }
   .genre {
     @extend .mood;
-    margin-top: -25%;
+    margin-top: -14%;
     h2 {
       margin-top: 0;
     }
-    }
-    .subMood {
-      @extend .mood;
-      margin-top: -20%;
-      }
-    }
+  }
+  .subMood {
+    @extend .mood;
+    margin-top: -12%;
+  }
+}
 
 .chosenOne {
-  @include chosen(rise 2s forwards);
+  @include animation(rise 2s forwards);
 
 }
 
@@ -184,19 +185,18 @@ section {
     @include shadow(9px 10px 9px 0px rgba(0,0,0,0.75));
     position:relative;
   }
-  }
+}
 
 
 .animate {
-  @include animateDown(animation 4s);
+  @include animation(animation 4s);
   opacity:0;
-  transform: translateY(1000px);
+  /* @include transform(translateY(1000px)); */
 }
 
 .fadein {
-  @include fadein(fade 2s .5s backwards);
+  @include animation(fade 2s .5s backwards);
 }
-
 
 
 //BUTTONS
@@ -215,7 +215,7 @@ section {
     border: 8px double black;
     background: linear-gradient(rgba(112,112,112,0.5), rgba(112,112,112,0.5));
     color: black;
-    @include transition(all 2s ease);
+    @include transition(background 2s ease);
 
 
   }
@@ -223,31 +223,31 @@ section {
 
 
 //KEYFRAMES
-@-webkit-keyframes animation{
+@include keyframes(animation) {
   0%{
     opacity:100;
-    -webkit-transform: rotate(20deg);
+    @include transform(rotate(20deg));
   }
   100%
   {
     opacity:0;
-    transform: translateY(1000px);
+    @include transform(translateY(1000px));
     display:none;
   }
 }
 
 
-@-webkit-keyframes rise{
+@include keyframes(rise) {
   0%{
   }
   100%
   {
-    -webkit-transform: translateY(-250px);
+    @include transform(translateY(-250px));
     opacity:0;
   }
 }
 
-@-webkit-keyframes fade {
+@include keyframes(fade) {
   0%{
     opacity:0;
   }
@@ -256,7 +256,6 @@ section {
     opacity:1;
   }
 }
-
 
 //JQUERY
 
@@ -272,10 +271,8 @@ div{
   display: inline-block;
   padding: 20px;
 }
-
-
 //MEDIA QUERIES FOR BACKGROUND
 @media screen and (max-device-width: 800px) {
-  html { background: url(polina.jpg) #000 no-repeat center center fixed; }
+  html { background: #fffff4 no-repeat center center fixed; }
   #bgvid { display: none; }
 }

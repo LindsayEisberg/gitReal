@@ -1,6 +1,11 @@
 @font-face {
   font-family: 'zorusFont';
   src: url(../Zorus_Serif.otf); }
+/* @mixin transition (\$transition) {
+  -webkit-transition: \$transition;
+  -moz-transition: \$transition;
+  transition: \$transition;
+} */
 body, h1, h2, h3, h4, h5, p, a {
   margin: 0;
   padding: 0; }
@@ -83,6 +88,7 @@ video.bgvid {
   height: auto;
   z-index: -100;
   opacity: 0.8;
+  background-color: #fffff4;
   filter: sepia(0.8);
   -webkit-filter: sepia(0.8);
   -moz-filter: sepia(0.8);
@@ -95,18 +101,18 @@ section {
   section .mood, section .genre, section .subMood {
     display: block;
     text-align: center;
-    margin-top: 10%; }
+    margin-top: 15%; }
   section .genre {
-    margin-top: -25%; }
+    margin-top: -14%; }
     section .genre h2 {
       margin-top: 0; }
   section .subMood {
-    margin-top: -20%; }
+    margin-top: -12%; }
 
 .chosenOne {
-  animation: rise 2s forwards;
   -webkit-animation: rise 2s forwards;
-  -moz-animation: rise 2s forwards; }
+  -moz-animation: rise 2s forwards;
+  animation: rise 2s forwards; }
 
 .results.active {
   width: 1200px;
@@ -150,16 +156,16 @@ section {
     position: relative; }
 
 .animate {
-  animation: animation 4s;
   -webkit-animation: animation 4s;
   -moz-animation: animation 4s;
+  animation: animation 4s;
   opacity: 0;
-  transform: translateY(1000px); }
+  /* @include transform(translateY(1000px)); */ }
 
 .fadein {
-  animation: fade 2s 0.5s backwards;
   -webkit-animation: fade 2s 0.5s backwards;
-  -moz-animation: fade 2s 0.5s backwards; }
+  -moz-animation: fade 2s 0.5s backwards;
+  animation: fade 2s 0.5s backwards; }
 
 .moodbtn {
   text-align: center;
@@ -176,9 +182,9 @@ section {
     border: 8px double black;
     background: linear-gradient(rgba(112, 112, 112, 0.5), rgba(112, 112, 112, 0.5));
     color: black;
-    -webkit-transition: all 2s ease;
-    -moz-transition: all 2s ease;
-    transition: all 2s ease; }
+    -webkit-transition: background 2s ease;
+    -moz-transition: background 2s ease;
+    transition: background 2s ease; }
 
 @-webkit-keyframes animation {
   0% {
@@ -186,13 +192,59 @@ section {
     -webkit-transform: rotate(20deg); }
   100% {
     opacity: 0;
+    -webkit-transform: translateY(1000px);
+    display: none; } }
+@-moz-keyframes animation {
+  0% {
+    opacity: 100;
+    -moz-transform: rotate(20deg); }
+  100% {
+    opacity: 0;
+    -moz-transform: translateY(1000px);
+    display: none; } }
+@keyframes animation {
+  0% {
+    opacity: 100;
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    transform: rotate(20deg); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(1000px);
+    -moz-transform: translateY(1000px);
+    -ms-transform: translateY(1000px);
+    -o-transform: translateY(1000px);
     transform: translateY(1000px);
     display: none; } }
 @-webkit-keyframes rise {
   100% {
     -webkit-transform: translateY(-250px);
     opacity: 0; } }
+@-moz-keyframes rise {
+  100% {
+    -moz-transform: translateY(-250px);
+    opacity: 0; } }
+@keyframes rise {
+  100% {
+    -webkit-transform: translateY(-250px);
+    -moz-transform: translateY(-250px);
+    -ms-transform: translateY(-250px);
+    -o-transform: translateY(-250px);
+    transform: translateY(-250px);
+    opacity: 0; } }
 @-webkit-keyframes fade {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-moz-keyframes fade {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes fade {
   0% {
     opacity: 0; }
   100% {
@@ -209,7 +261,7 @@ div {
 
 @media screen and (max-device-width: 800px) {
   html {
-    background: url(polina.jpg) #000 no-repeat center center fixed; }
+    background: #fffff4 no-repeat center center fixed; }
 
   #bgvid {
     display: none; } }

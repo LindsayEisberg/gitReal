@@ -8,11 +8,13 @@ $subHead-font-color: #514f4f;
 
 $head-font: 'zorusFont', 'viva-std', serif;
 
-@mixin transition ($transition) {
-  -webkit-transition: $transition;
-  -moz-transition: $transition;
-  transition: $transition;
-}
+
+
+/* @mixin transition (\$transition) {
+  -webkit-transition: \$transition;
+  -moz-transition: \$transition;
+  transition: \$transition;
+} */
 
 @mixin chosen ($chosen) {
   animation: $chosen;
@@ -26,6 +28,12 @@ $head-font: 'zorusFont', 'viva-std', serif;
   -moz-animation: $animateDown;
 }
 
+@mixin fadein ($fadein) {
+  animation: $fadein;
+  -webkit-animation: $fadein;
+  -moz-animation: $fadein;
+}
+
 @mixin sepia ($sepia) {
   filter: $sepia;
   -webkit-filter: $sepia;
@@ -36,11 +44,4 @@ $head-font: 'zorusFont', 'viva-std', serif;
   -webkit-box-shadow: $shadow;
   -moz-box-shadow: $shadow;
   box-shadow: $shadow;
-}
-
-
-@mixin fadein ($fadein) {
-  animation: $fadein;
-  -webkit-animation: $fadein;
-  -moz-animation: $fadein;
 }
